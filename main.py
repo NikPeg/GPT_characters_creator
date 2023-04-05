@@ -1,14 +1,10 @@
-import os
-import openai
+import models
 
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+ded: models.LiteraryCharacter = models.LiteraryCharacter("Максим", 95, "скверный, сварливый")
+masha: models.LiteraryCharacter = models.LiteraryCharacter("Маша", 9, "весёлая, жизнерадостная, смешливая")
+ludmila: models.LiteraryCharacter = models.LiteraryCharacter("Люда", 24, "замкнутая, скрытная, депрессивная")
 
-completion = openai.ChatCompletion.create(
-  model="gpt-3.5-turbo",
-  messages=[
-    {"role": "user", "content": "Скажи 'Hello world!'"}
-  ]
-)
-
-print(completion.choices[0].message.content)
+ded.introduce()
+masha.introduce()
+ludmila.introduce()
